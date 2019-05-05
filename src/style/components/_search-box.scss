@@ -1,0 +1,39 @@
+.search-box {
+  background-image: linear-gradient(rgba(black, 0.8), rgba(black, 0.4)),
+    url("./banner.jpg");
+  background-position: center;
+  background-size: cover;
+
+  &__body {
+    padding: 19rem 0;
+  }
+
+  &__title {
+    color: #fff;
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+  }
+  input {
+    margin-right: 2rem;
+    border-radius: 3px;
+    padding: 2rem;
+    border: none;
+    width: 41%;
+    outline: none;
+  }
+
+  button {
+    background-color: $color-green;
+    color: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+        background-color: darken($color-green, 5%);
+    }
+  }
+}

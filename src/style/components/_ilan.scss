@@ -1,0 +1,74 @@
+.ilan {
+  padding: 3rem 5rem;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  display: flex;
+
+  &__logo {
+    height: 5rem;
+    margin-right: 3rem;
+  }
+  &__type {
+    border: 1px solid #186fc9;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    background-color: #f1f7fc;
+    font-size: 1.2rem;
+    color: #186fc9;
+  }
+  &__body {
+    &--top {
+      margin-bottom: 1rem;
+    }
+    &--bottom {
+      color: #26ae61;
+      display: flex;
+      font-size: 1.4rem;
+      font-weight: 300;
+
+      &-company {
+        margin-right: 2rem;
+      }
+    }
+
+    &--tags {
+      display: flex;
+      margin-top: 1rem;
+
+      &-tag {
+        color: #26ae61;
+        border: 1px solid #e6e2e2;
+        border-radius: 3px;
+        padding: 0.5rem;
+        margin-right: 0.8rem;
+        font-size: 1.2rem;
+        font-weight: 300;
+      }
+    }
+  }
+  &__right {
+    margin-left: auto;
+  }
+  &:before {
+    content: "";
+    height: 100%;
+    width: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #2980b9;
+  }
+
+  &:hover {
+    background-color: darken(#fff, 2%);
+  }
+
+  &:hover .ilan__body--tags-tag {
+    background-color: #fff;
+  }
+  &:last-child {
+    border-bottom-right-radius: 5px;
+  }
+}
