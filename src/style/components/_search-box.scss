@@ -5,13 +5,13 @@
   background-size: cover;
 
   &__body {
-    padding: 19rem 0;
+    padding: 11rem 0;
   }
 
   &__title {
     color: #fff;
-    font-size: 4rem;
-    margin-bottom: 4rem;
+    font-size: 3rem;
+    margin-bottom: 2rem;
     font-weight: 300;
   }
   input {
@@ -19,7 +19,7 @@
     border-radius: 3px;
     padding: 2rem;
     border: none;
-    width: 41%;
+    width: 38%;
     outline: none;
   }
 
@@ -30,10 +30,10 @@
     border-radius: 3px;
     border: none;
     cursor: pointer;
-    transition: all .2s;
+    transition: all 0.2s;
 
     &:hover {
-        background-color: darken($color-green, 5%);
+      background-color: darken($color-green, 5%);
     }
   }
 }

@@ -6,6 +6,8 @@
   position: relative;
   display: flex;
 
+  
+
   &__logo {
     height: 5rem;
     margin-right: 3rem;
@@ -21,6 +23,7 @@
   &__body {
     &--top {
       margin-bottom: 1rem;
+      color: #333;
     }
     &--bottom {
       color: #26ae61;

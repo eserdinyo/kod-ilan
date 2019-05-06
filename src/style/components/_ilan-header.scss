@@ -1,0 +1,38 @@
+.ilan-header {
+  background-color: #f6f6f6;
+  padding: 6rem 0;
+
+  &__body {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    h1 {
+      font-weight: 300;
+      color: #333;
+      margin-right: 2rem;
+    }
+  }
+
+  &__type {
+    background-color: #186fc9;
+    color: #fff;
+    padding: 1rem 1.2rem;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+
+  &__button {
+    margin-left: auto;
+    padding: 1.3rem 2.5rem;
+    background-color: #282828;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background-color: $color-green;
+    }
+  }
+}
