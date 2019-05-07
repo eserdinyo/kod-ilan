@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import Header from "../components/Header";
 import Home from "../components/Home";
-import IlanPage from "../components/ilan-page";
+import IlanPage from "../components/ilan-detay";
 
 const AppRouter = () => (
   <BrowserRouter>
