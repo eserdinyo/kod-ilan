@@ -35,7 +35,7 @@ class ilanlar extends Component {
           <h3 className="son-ilanlar__title">En son eklenen ilanlar</h3>
           <div className="son-ilanlar__list">
             {ilanlar.map((ilan, idx) => (
-              <Link key={idx} to={`/ilanlar/${idx+1}`}  style={{ textDecoration: "none" }}>
+              <Link key={idx} to={`/ilanlar/${idx}`}  style={{ textDecoration: "none" }}>
                 <Ilan key={idx} ilan={ilan} />
               </Link>
             ))}

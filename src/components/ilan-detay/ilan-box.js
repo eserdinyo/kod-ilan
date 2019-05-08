@@ -23,8 +23,8 @@ export const IlanBox = () => (
       <div className="ilan-box__tag">backend</div>
       <div className="ilan-box__tag">frontend</div>
     </div>
-        <a className="ilan-box__button" href="">E-posta ile başvur</a>
-        <a className="ilan-box__button" href="">Site üzerinden başvur</a>
+        <a className="ilan-box__button" href="foo">E-posta ile başvur</a>
+        <a className="ilan-box__button" href="foo">Site üzerinden başvur</a>
   </div>
 );
 
