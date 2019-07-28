@@ -1,49 +1,58 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+
 import Ilan from "./ilan";
+import Loader from './Loader';
 
-class ilanlar extends Component {
-  state = {
-    ilanlar: [
-      {
-        title: "Full-Stack Developer",
-        company: "NES Bilgi",
-        location: "Izmir",
-        type: "Tam Zamanli"
-      },
-      {
-        title: "PHP Gelistirici",
-        company: "Drstok Planet",
-        location: "Bursa",
-        type: "Remote"
-      },
-      {
-        title: "Frontend Developer",
-        company: "Protel",
-        location: "Istanbul",
-        type: "Tam Zamanli"
-      }
-    ]
-  };
+const http = axios.create({
+  baseURL: 'https://api.kodilan.com',
+});
 
-  render() {
-    const { ilanlar } = this.state;
 
-    return (
-      <div className="container">
-        <div className="son-ilanlar">
-          <h3 className="son-ilanlar__title">En son eklenen ilanlar</h3>
-          <div className="son-ilanlar__list">
-            {ilanlar.map((ilan, idx) => (
-              <Link key={idx} to={`/ilanlar/${idx}`}  style={{ textDecoration: "none" }}>
-                <Ilan key={idx} ilan={ilan} />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
+function Ilanlar() {
+  const [ilanlar, setIlanlar] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    fetchPosts();
+  }, [])
+
+  function fetchPosts() {
+    http.get('/posts?get=25').then(res => {
+      setIlanlar(res.data.data);
+      console.log(res.data.data);
+
+      setIsLoading(false)
+    })
   }
+
+  return (
+    <div className="container">
+      <div className="son-ilanlar">
+        <h3 className="son-ilanlar__title">En son eklenen ilanlar</h3>
+        {
+          !isLoading &&
+          (
+            <div className="son-ilanlar__list">
+              {ilanlar.map((ilan, idx) => (
+                <Link key={idx} to={`/ilanlar/${ilan.slug}`} style={{ textDecoration: "none" }}>
+                  <Ilan key={idx} ilan={ilan} />
+                </Link>
+              ))}
+            </div>
+          )
+        }
+        <div className='loader-wrapper'>
+          {
+            isLoading &&
+            <Loader />
+          }
+        </div>
+
+      </div>
+    </div>
+  );
 }
 
-export default ilanlar;
+export default Ilanlar;

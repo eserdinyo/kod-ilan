@@ -1,15 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchBox from '../components/SearchBox';
 import Ilanlar from '../components/ilanlar';
 
 const Home = (props) => {
-  useEffect(() => {
-    console.log(props);
-    return () => {
-    }
-  }, [])
-
-
   return (
     <div>
       <SearchBox />
@@ -18,4 +11,4 @@ const Home = (props) => {
   )
 }
 
-export default Home;
+export default Home

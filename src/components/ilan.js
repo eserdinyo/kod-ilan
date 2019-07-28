@@ -1,30 +1,29 @@
 import React from "react";
-import logo from "../assets/ilan-logo.png";
 
-const ilan = props => {
-  const { ilan } = props;
+import formatDate from '../utils/date';
+import postType from '../utils/postType';
 
+const ilan = ({ ilan }) => {
   return (
     <div className="ilan">
-      <img src={logo} alt="ilan-logo" className="ilan__logo" />
+      <img src={ilan.company.logo} alt="ilan-logo" className="ilan__logo" />
       <div className="ilan__body">
-        <div className="ilan__body--top">{ilan.title}</div>
+        <div className="ilan__body--top">{ilan.position}</div>
         <div className="ilan__body--bottom">
-          <div className="ilan__body--bottom-company">{ilan.company}</div>
+          <div className="ilan__body--bottom-company">{ilan.company.name}</div>
           <div className="ilan__body--bottom--location">
             <div className="ilan__location">{ilan.location}</div>
           </div>
         </div>
         <div className="ilan__body--tags">
-          <div className="ilan__body--tags-tag">docker</div>
-          <div className="ilan__body--tags-tag">php</div>
-          <div className="ilan__body--tags-tag">javascript</div>
-          <div className="ilan__body--tags-tag">react</div>
-          <div className="ilan__body--tags-tag">react-native</div>
+          {ilan.tags.map((tag, idx) =>
+            <div key={idx} className="ilan__body--tags-tag">{tag.name}</div>
+          )}
         </div>
       </div>
       <div className="ilan__right">
-        <div className="ilan__type">{ilan.type}</div>
+        <div className="ilan__type">{postType(ilan.type)}</div>
+        <div className="ilan__time"> {formatDate(ilan.created_at)}</div>
       </div>
     </div>
   );
