@@ -1,6 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AppRoter from "./routes";
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+import allReducers from './store';
+import App from "./routes";
 import "./style/style.scss";
 
-ReactDOM.render(<AppRoter />, document.getElementById("root"));
+const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
+
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , document.getElementById("root"));

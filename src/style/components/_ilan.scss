@@ -134,20 +134,19 @@
     }
   }
 
-
   &-box {
     background-color: #fdfdfd;
     border-radius: 3px;
     padding: 3rem 3rem;
     border: 1px solid #e2e2e2;
-    width: 300px;
+    min-width: 300px;
 
     &__item {
       margin-bottom: 3rem;
       display: flex;
 
       i {
-        color:  rgba($color-green, .5);
+        color: rgba($color-green, 0.5);
         font-size: 20px;
         margin-right: 10px;
       }
@@ -186,8 +185,8 @@
       font-size: 13px;
       padding: 3px 8px;
       border: 1px solid #e0e0e0;
-      margin-right: .5rem;
-      margin-top: .5rem;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
       border-radius: 3px;
     }
 
@@ -198,5 +197,4 @@
       line-height: 24px;
     }
   }
-
 }

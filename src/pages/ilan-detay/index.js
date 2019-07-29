@@ -19,6 +19,7 @@ const IlanPage = ({ match }) => {
   useEffect(() => {
     fetchBySlug();
     window.scrollTo(0, 0); // Scrool page to up
+    // eslint-disable-next-line
   }, []);
 
 

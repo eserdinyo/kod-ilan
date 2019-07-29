@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../assets/ilan-logo.png";
 
 export const IlanInfo = ({ company, desc }) => (
   <div style={{ flexGrow: 1, marginRight: 20 }}>
