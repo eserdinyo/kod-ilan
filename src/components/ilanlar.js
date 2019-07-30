@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import * as actions from '../store/actions';
 
 import Ilan from "./ilan";
+import FeaturedPost from './FeaturedPost';
 import Loader from './Loader';
 
 
@@ -13,6 +14,7 @@ import Loader from './Loader';
 function Ilanlar() {
   const posts = useSelector(state => state.postsReducer.posts)
   const isLoading = useSelector(state => state.postsReducer.isLoading)
+  const featuredPosts = useSelector(state => state.postsReducer.featuredPosts);
 
   const dispatch = useDispatch();
 
@@ -20,6 +22,7 @@ function Ilanlar() {
 
   useEffect(() => {
     dispatch(actions.fetchPosts())
+    dispatch(actions.fetchFeauteredPosts())
 
     return () => {
       dispatch(actions.resetLoading())
@@ -29,27 +32,49 @@ function Ilanlar() {
 
   return (
     <div className="container">
-      <div className="son-ilanlar">
-        <h3 className="son-ilanlar__title">En son eklenen ilanlar</h3>
-        {
-          !isLoading &&
-          (
-            <div className="son-ilanlar__list">
-              {posts.map((ilan, idx) => (
-                <Link key={idx} to={`/ilanlar/${ilan.slug}`} style={{ textDecoration: "none" }}>
-                  <Ilan key={idx} ilan={ilan} />
-                </Link>
-              ))}
-            </div>
-          )
-        }
-        <div className='loader-wrapper'>
+      <div className="home-page">
+        <div className="son-ilanlar">
+          <h3 className="son-ilanlar__title">En son eklenen ilanlar</h3>
+          {
+            !isLoading &&
+            (
+              <div className="son-ilanlar__list">
+                {posts.map((ilan, idx) => (
+                  <Link key={idx} to={`/ilanlar/${ilan.slug}`} style={{ textDecoration: "none" }}>
+                    <Ilan key={idx} ilan={ilan} />
+                  </Link>
+                ))}
+              </div>
+            )
+          }
+          <div className='loader-wrapper'>
+            {
+              isLoading &&
+              <Loader />
+            }
+          </div>
+
+        </div>
+        <div className="featured-posts__wrapper">
           {
             isLoading &&
-            <Loader />
+            <div className='loader-wrapper'>
+
+              <Loader />
+            </div>
+
+          }
+          {
+            !isLoading &&
+            <div>
+              {
+                featuredPosts.map(post => (
+                  <FeaturedPost key={post.slug} post={post} />
+                ))
+              }
+            </div>
           }
         </div>
-
       </div>
     </div>
   );

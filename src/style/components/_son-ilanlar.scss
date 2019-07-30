@@ -1,15 +1,19 @@
-.son-ilanlar {
-    margin-bottom: 5rem;
+.home-page {
+  display: flex;
+}
 
-    &__list {
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        border-bottom: none;
-    }
-    &__title {
-        color: #333;
-        font-weight: 400;
-        font-size: 22px;
-        margin: 4rem 0;
-    }
+.son-ilanlar {
+  margin-bottom: 5rem;
+
+  &__list {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+  }
+  &__title {
+    color: #333;
+    font-weight: 400;
+    font-size: 22px;
+    margin: 4rem 0;
+  }
 }

@@ -4,6 +4,7 @@ const initialState = {
     posts: [],
     post: {},
     isLoading: true,
+    featuredPosts: [],
 }
 
 const postsReducer = (state = initialState, { type, payload }) => {
@@ -16,6 +17,10 @@ const postsReducer = (state = initialState, { type, payload }) => {
 
         case constants.RESET_LOADING:
             return { ...state, isLoading: true }
+
+        case constants.FETCH_FEATURED_POSTS_OK:
+            return { ...state, featuredPosts: [...payload] }
+
 
         default:
             return state;

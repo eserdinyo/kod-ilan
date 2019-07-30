@@ -11,3 +11,7 @@ export const fetchPosts = () => {
 export const fetchPost = (slug) => {
     return http.get(`/posts/${slug}`).then(res => res.data);
 }
+
+export const fetchFeaturedPosts = () => {
+    return http.get('/posts?get=3&is_featured=1').then(res => res.data);
+}
