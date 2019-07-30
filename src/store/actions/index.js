@@ -1,15 +1,21 @@
 import * as constants from '../constants';
 
-export const increment = payload => {
+export const fetchPosts = payload => {
     return {
-        type: constants.INCREMENT_COUNTER,
+        type: constants.FETCH_POSTS,
         payload,
     }
 }
 
-export const decrement = payload => {
+export const fetchPost = payload => {
     return {
-        type: constants.DECREMENT_COUNTER,
+        type: constants.FETCH_POST,
         payload,
+    }
+}
+
+export const resetLoading = () => {
+    return {
+        type: constants.RESET_LOADING,
     }
 }

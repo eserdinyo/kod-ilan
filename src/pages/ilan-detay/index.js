@@ -1,36 +1,32 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { IlanHeader } from "./ilan-header";
 import { IlanInfo } from "./ilan-info";
 import IlanBox from "./ilan-box";
 import Loader from '../../components/Loader';
+import * as actions from '../../store/actions';
 
 
-const http = axios.create({
-  baseURL: 'https://api.kodilan.com',
-});
 
 const IlanPage = ({ match }) => {
 
-  const [ilan, setIlan] = useState({});
-  const [isLoading, setIsLoading] = useState(true)
+  const dispatch = useDispatch();
+  const post = useSelector(store => store.postsReducer.post)
+  const isLoading = useSelector(store => store.postsReducer.isLoading);
+
 
   useEffect(() => {
-    fetchBySlug();
+
+    dispatch(actions.fetchPost(match.params.slug))
     window.scrollTo(0, 0); // Scrool page to up
+
+    return () => {
+      dispatch(actions.resetLoading())
+    }
     // eslint-disable-next-line
   }, []);
 
-
-  function fetchBySlug() {
-    http.get(`/posts/${match.params.slug}`)
-      .then(res => {
-        setIlan(res.data)
-        setIsLoading(false);
-        console.log(res.data);
-      });
-  }
 
   return (
     <div>
@@ -38,11 +34,11 @@ const IlanPage = ({ match }) => {
         !isLoading &&
         (
           <div>
-            <IlanHeader position={ilan.position} type={ilan.type} />
+            <IlanHeader position={post.position} type={post.type} />
             <div className="container">
               <div className="ilan__detail">
-                <IlanInfo company={ilan.company} desc={ilan.description} />
-                <IlanBox position={ilan.position} location={ilan.location} tags={ilan.tags} www={ilan.company.www} />
+                <IlanInfo company={post.company} desc={post.description} />
+                <IlanBox position={post.position} location={post.location} tags={post.tags} www={post.company.www} />
               </div>
             </div>
           </div>

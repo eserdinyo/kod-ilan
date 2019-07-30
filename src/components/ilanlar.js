@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
-import axios from 'axios';
+
+import * as actions from '../store/actions';
 
 import Ilan from "./ilan";
 import Loader from './Loader';
 
-const http = axios.create({
-  baseURL: 'https://api.kodilan.com',
-});
+
 
 
 function Ilanlar() {
-  const [ilanlar, setIlanlar] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
+  const posts = useSelector(state => state.postsReducer.posts)
+  const isLoading = useSelector(state => state.postsReducer.isLoading)
+
+  const dispatch = useDispatch();
+
+
 
   useEffect(() => {
-    fetchPosts();
+    dispatch(actions.fetchPosts())
+
+    return () => {
+      dispatch(actions.resetLoading())
+    }
   }, [])
 
-  function fetchPosts() {
-    http.get('/posts?get=25').then(res => {
-      setIlanlar(res.data.data);
-      console.log(res.data.data);
-
-      setIsLoading(false)
-    })
-  }
 
   return (
     <div className="container">
@@ -35,7 +35,7 @@ function Ilanlar() {
           !isLoading &&
           (
             <div className="son-ilanlar__list">
-              {ilanlar.map((ilan, idx) => (
+              {posts.map((ilan, idx) => (
                 <Link key={idx} to={`/ilanlar/${ilan.slug}`} style={{ textDecoration: "none" }}>
                   <Ilan key={idx} ilan={ilan} />
                 </Link>
