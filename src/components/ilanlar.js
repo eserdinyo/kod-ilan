@@ -42,7 +42,7 @@ function Ilanlar(props) {
               <div className="son-ilanlar__list">
                 {posts.map((ilan, idx) => (
                   <Link key={idx} to={`/ilanlar/${ilan.slug}`} style={{ textDecoration: "none" }}>
-                    <Ilan key={idx} ilan={ilan} />
+                    <Ilan key={idx} {...ilan} />
                   </Link>
                 ))}
               </div>

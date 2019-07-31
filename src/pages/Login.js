@@ -1,23 +1,18 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import * as actions from '../store/actions';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-import { login } from '../utils/auth';
+import * as actions from '../store/actions';
 
 const Login = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
-    const isLoggedIn = useSelector(store => store.authReducer.isLoggedIn);
-
-
 
     const handleLogin = () => {
         setTimeout(() => {
             dispatch(actions.signIn());
-
             props.history.push('/')
         }, 1000)
 
@@ -33,4 +28,4 @@ const Login = (props) => {
     )
 }
 
-export default Login;
+export default withRouter(Login);

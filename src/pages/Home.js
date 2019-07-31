@@ -3,22 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import SearchBox from '../components/SearchBox';
 import Ilanlar from '../components/ilanlar';
 
-const Home = (props) => {
+const Home = () => (
+  <div>
+    <SearchBox />
+    <Ilanlar />
+  </div>
+)
 
-  const isLoggedIn = useSelector(store => store.authReducer.isLoggedIn);
-
-
-  useEffect(() => {
-    console.log(isLoggedIn);
-  }, []);
-
-
-  return (
-    <div>
-      <SearchBox />
-      <Ilanlar />
-    </div>
-  )
-}
 
 export default Home

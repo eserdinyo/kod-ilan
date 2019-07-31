@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-// import { auth } from '../utils/auth';
+import { withRouter } from 'react-router-dom';
+
 import * as actions from '../store/actions';
-import { Redirect } from 'react-router-dom';
 
 
 const Register = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const isLoggedIn = useSelector(store => store.authReducer.isLoggedIn);
     const dispatch = useDispatch();
 
     const handleRegister = () => {
         setTimeout(() => {
             dispatch(actions.signIn());
-
             props.history.push('/')
         }, 1000)
-
     }
 
     return (
@@ -31,4 +28,4 @@ const Register = (props) => {
     )
 }
 
-export default Register;
+export default withRouter(Register);
