@@ -24,3 +24,16 @@ export const resetLoading = () => {
         type: constants.RESET_LOADING,
     }
 }
+
+export const signIn = () => {
+    return {
+        type: constants.SIGN_IN
+    }
+}
+
+export const signOut = () => {
+    return {
+        type: constants.SIGN_OUT
+    }
+}
+

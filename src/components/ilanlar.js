@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 
@@ -11,7 +11,8 @@ import Loader from './Loader';
 
 
 
-function Ilanlar() {
+function Ilanlar(props) {
+
   const posts = useSelector(state => state.postsReducer.posts)
   const isLoading = useSelector(state => state.postsReducer.isLoading)
   const featuredPosts = useSelector(state => state.postsReducer.featuredPosts);

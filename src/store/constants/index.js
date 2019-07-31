@@ -5,3 +5,5 @@ export const FETCH_POST_OK = 'FETCH_POST_OK'
 export const RESET_LOADING = 'RESET_LOADING'
 export const FETCH_FEATURED_POSTS = 'FETCH_FEATURED_POSTS';
 export const FETCH_FEATURED_POSTS_OK = 'FETCH_FEATURED_POSTS_OK';
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_OUT = 'SIGN_OUT';

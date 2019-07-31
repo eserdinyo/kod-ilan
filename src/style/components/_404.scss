@@ -1,0 +1,23 @@
+._404 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50%;
+    height: 50%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        font-weight: 300;
+        color: $color-green;
+    }
+}
