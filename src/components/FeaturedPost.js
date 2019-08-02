@@ -1,5 +1,6 @@
 import React from 'react'
 import postType from '../utils/postType';
+import { Tag, Badge, FeaturedButton } from '../elements';
 
 const FeaturedPost = ({ post }) => {
     return (
@@ -13,24 +14,24 @@ const FeaturedPost = ({ post }) => {
                     <div className='featured-posts__location'>
                         {post.location}
                     </div>
-                    <div className="ilan__type">
+                    <Badge>
                         {postType(post.type)}
-                    </div>
+                    </Badge>
                 </div>
                 <div className="featured-posts__desc" dangerouslySetInnerHTML={{ __html: post.description.slice(0, 100) }} />
                 <div className="featured-posts__tags">
                     {
                         post.tags.map(tag => (
-                            <div key={tag.slug} className="featured-posts__tags-tag">
+                            <Tag key={tag.slug}>
                                 {
                                     tag.name
                                 }
-                            </div>
+                            </Tag>
                         ))
                     }
                 </div>
-                <div className="featured-posts__btn">
-                    <button>Ilana git</button>
+                <div >
+                    <FeaturedButton primary>Ilana git</FeaturedButton>
                 </div>
             </div>
         </div>

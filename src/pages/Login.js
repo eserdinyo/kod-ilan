@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import { Button, Input } from '../elements';
 import * as actions from '../store/actions';
 
 const Login = (props) => {
@@ -21,9 +22,9 @@ const Login = (props) => {
     return (
         <div className='login'>
             <h4>Login</h4>
-            <input type="text" placeholder='E-mail' value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="password" placeholder='Şifre' value={password} onChange={(e) => setPassword(e.target.value)} />
-            <button className='btn' onClick={handleLogin} >Giriş</button>
+            <Input type="text" placeholder='E-mail' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <Input type="password" placeholder='Şifre' value={password} onChange={(e) => setPassword(e.target.value)} />
+            <Button primary onClick={handleLogin} >Giriş</Button>
         </div>
     )
 }

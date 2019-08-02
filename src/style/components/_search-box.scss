@@ -4,6 +4,10 @@
   background-position: center;
   background-size: cover;
 
+  &__form {
+    display: flex;
+    justify-content: space-between;
+  }
   &__body {
     padding: 11rem 0;
   }
@@ -13,27 +17,5 @@
     font-size: 3rem;
     margin-bottom: 2rem;
     font-weight: 300;
-  }
-  input {
-    margin-right: 2rem;
-    border-radius: 3px;
-    padding: 2rem;
-    border: none;
-    width: 38%;
-    outline: none;
-  }
-
-  button {
-    background-color: $color-green;
-    color: #fff;
-    padding: 2rem 2.5rem;
-    border-radius: 3px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
-
-    &:hover {
-      background-color: darken($color-green, 5%);
-    }
   }
 }

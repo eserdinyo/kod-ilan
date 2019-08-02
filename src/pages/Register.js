@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import { Button, Input } from '../elements';
 import * as actions from '../store/actions';
 
 
@@ -21,9 +22,9 @@ const Register = (props) => {
     return (
         <div className='login'>
             <h4>Register</h4>
-            <input type="text" placeholder='E-mail' value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="password" placeholder='Şifre' value={password} onChange={(e) => setPassword(e.target.value)} />
-            <button className='btn' onClick={handleRegister} >Kayıt Ol</button>
+            <Input type="text" placeholder='E-mail' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <Input type="password" placeholder='Şifre' value={password} onChange={(e) => setPassword(e.target.value)} />
+            <Button primary onClick={handleRegister} >Kayıt Ol</Button>
         </div>
     )
 }

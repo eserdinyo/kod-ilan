@@ -2,6 +2,7 @@ import React from "react";
 
 import formatDate from '../utils/date';
 import postType from '../utils/postType';
+import { Tag, Badge } from '../elements';
 
 const ilan = ({ position, company, location, tags, type, created_at }) => {
   return (
@@ -17,12 +18,12 @@ const ilan = ({ position, company, location, tags, type, created_at }) => {
         </div>
         <div className="ilan__body--tags">
           {tags.map((tag, idx) =>
-            <div key={idx} className="ilan__body--tags-tag">{tag.name}</div>
+            <Tag key={idx}>{tag.name}</Tag>
           )}
         </div>
       </div>
       <div className="ilan__right">
-        <div className="ilan__type">{postType(type)}</div>
+        <Badge >{postType(type)}</Badge>
         <div className="ilan__time"> {formatDate(created_at)}</div>
       </div>
     </div>

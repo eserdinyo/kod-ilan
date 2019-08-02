@@ -1,4 +1,5 @@
 import React from "react";
+import { SearchButton, SearchInput } from '../elements';
 
 const SearchBox = () => (
   <div className="search-box">
@@ -6,9 +7,9 @@ const SearchBox = () => (
       <div className="search-box__body">
         <div className="search-box__title">İlan Ara</div>
         <div className="search-box__form">
-          <input type="text" placeholder="Pozisyon adı, teknoloji adı" />
-          <input type="text" placeholder="Şehir" />
-          <button>Ara</button>
+          <SearchInput type="text" placeholder="Pozisyon adı, teknoloji adı" />
+          <SearchInput type="text" placeholder="Şehir" />
+          <SearchButton primary>Ara</SearchButton>
         </div>
       </div>
     </div>

@@ -2,7 +2,9 @@ import React from "react";
 import { withRouter } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
+
 import * as actions from '../store/actions';
+import { Button } from '../elements'
 
 const Header = ({ history }) => {
 
@@ -12,7 +14,7 @@ const Header = ({ history }) => {
   const handleSignOut = () => {
     setTimeout(() => {
       dispath(actions.signOut())
-     
+
     }, 1000)
   }
 
@@ -25,37 +27,30 @@ const Header = ({ history }) => {
           </Link>
           <div style={{ display: 'flex' }}>
 
-            <button
-              className="header__button"
+            <Button
               onClick={() => history.push('/ilan-ekle')}
-            >Ücretsiz İlan Ekle</button>
+              primary
+            >Ücretsiz İlan Ekle</Button>
+
 
 
             {
               !isLoggedIn ?
                 (
                   <div>
-                    <button
+                    <Button
                       onClick={() => history.push('/login')}
-                      className="header__button"
-                      style={{ backgroundColor: '#191919' }}
-                    >Giriş Yap</button>
-                    <button
+                    >Giriş Yap</Button>
+
+                    <Button
                       onClick={() => history.push('/register')}
-                      className="header__button"
-                      style={{ backgroundColor: '#191919' }}
-                    >Kayıt Ol</button>
+                    >Kayıt Ol</Button>
                   </div>
                 ) :
-                <button
+                <Button
                   onClick={handleSignOut}
-                  className="header__button"
-                  style={{ backgroundColor: '#191919' }}
-                >Çıkış Yap</button>
-
+                >Çıkış Yap</Button>
             }
-
-
           </div>
         </div>
       </div>
