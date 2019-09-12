@@ -22,4 +22,8 @@ export const FeaturedButton = styled(Button)`
 
 export const SearchButton = styled(Button)`
     margin-left: 0;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
