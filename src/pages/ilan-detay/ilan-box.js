@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export const IlanBox = ({ position, location, www, tags }) => {
+
+  useEffect(() => {
+
+    console.log(www);
+
+
+  }, [])
+
+
   return (
     <div className="ilan-box">
       <div className="ilan-box__item">

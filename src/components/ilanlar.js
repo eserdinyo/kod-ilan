@@ -37,43 +37,33 @@ function Ilanlar(props) {
         <div className="son-ilanlar">
           <h3 className="son-ilanlar__title">En son eklenen ilanlar</h3>
           {
-            !isLoading &&
-            (
-              <div className="son-ilanlar__list">
-                {posts.map((ilan, idx) => (
-                  <Link key={idx} to={`/ilanlar/${ilan.slug}`} style={{ textDecoration: "none" }}>
-                    <Ilan key={idx} {...ilan} />
-                  </Link>
-                ))}
-              </div>
-            )
-          }
-          <div className='loader-wrapper'>
-            {
-              isLoading &&
+            isLoading ?
+              (
+                <div className="son-ilanlar__list">
+                  {posts.map((ilan, idx) => (
+                    <Link key={idx} to={`/ilanlar/${ilan.slug}`} style={{ textDecoration: "none" }}>
+                      <Ilan key={idx} {...ilan} />
+                    </Link>
+                  ))}
+                </div>
+              ) :
               <Loader />
-            }
-          </div>
+          }
 
         </div>
         <div className="featured-posts__wrapper">
           {
-            isLoading &&
-            <div className='loader-wrapper'>
-
+            isLoading ?
+              (
+                <div>
+                  {
+                    featuredPosts.map(post => (
+                      <FeaturedPost key={post.slug} post={post} />
+                    ))
+                  }
+                </div>
+              ) :
               <Loader />
-            </div>
-
-          }
-          {
-            !isLoading &&
-            <div>
-              {
-                featuredPosts.map(post => (
-                  <FeaturedPost key={post.slug} post={post} />
-                ))
-              }
-            </div>
           }
         </div>
       </div>
