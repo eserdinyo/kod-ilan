@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { IlanHeader } from "./ilan-header";
 import { IlanInfo } from "./ilan-info";
-import IlanBox from "./ilan-box";
+import { IlanBox } from "./ilan-box";
 import Loader from '../../components/Loader';
 import * as actions from '../../store/actions';
 

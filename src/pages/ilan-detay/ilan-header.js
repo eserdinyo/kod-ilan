@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 import postType from '../../utils/postType';
 
@@ -15,3 +16,9 @@ export const IlanHeader = ({ position, type }) => (
     </div>
   </div>
 );
+
+
+IlanHeader.propTypes = {
+  position: PropTypes.string.isRequired,
+  type: PropTypes.number.isRequired,
+}

@@ -1,14 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react"
+import PropTypes from 'prop-types'
+
 
 export const IlanBox = ({ position, location, www, tags }) => {
-
-  useEffect(() => {
-
-    console.log(www);
-
-
-  }, [])
-
 
   return (
     <div className="ilan-box">
@@ -64,4 +58,11 @@ export const IlanBox = ({ position, location, www, tags }) => {
   )
 };
 
-export default IlanBox;
+
+IlanBox.propTypes = {
+  position: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  www: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.object)
+}
+
