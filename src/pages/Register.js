@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { Button, Input } from '../elements';

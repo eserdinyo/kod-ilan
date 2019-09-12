@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 

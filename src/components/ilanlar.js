@@ -28,6 +28,7 @@ function Ilanlar(props) {
     return () => {
       dispatch(actions.resetLoading())
     }
+    // eslint-disable-next-line
   }, [])
 
 

@@ -1,7 +1,7 @@
 import * as constans from '../constants';
 
 const initialState = {
-    isLoggedIn: localStorage.getItem('isLoggedIn') == 'true' ? true : false
+    isLoggedIn: localStorage.getItem('isLoggedIn') === 'true' ? true : false
 }
 
 

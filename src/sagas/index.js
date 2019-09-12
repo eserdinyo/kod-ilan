@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
+import { put, takeEvery } from 'redux-saga/effects'
 
 import * as constants from '../store/constants';
 import * as api from '../api';
@@ -25,7 +25,7 @@ function* fetchPost({ payload }) {
 function* fetchFeaturedPosts() {
     try {
         const res = yield api.fetchFeaturedPosts();
-        
+
         yield put({ type: constants.FETCH_FEATURED_POSTS_OK, payload: res.data })
     }
     catch (e) {
